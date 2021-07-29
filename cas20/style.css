@@ -1,0 +1,13 @@
+.jumbotron {
+    padding: 3rem;
+    background-color: #eee;
+}
+#add-accounts-view {
+    display: none;
+}
+#edit-accounts-view{
+    display: none;
+}
+#edit-form-view {
+    display: none;
+}

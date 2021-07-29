@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat&family=Open+Sans:wght@300;400&display=swap');
+$bodyFont: 'Open Sans',
+sans-serif;
+$headings: 'Caveat',
+cursive;
+$font: 16px;
+$orange: orangered;
+$white:#fff;
+$gray: #444444;
+$black: #000;
+$lightgray: #eeeeee;
+$padding:70px 0;
+$transition: .3s ease;
+$borderRadius: 10px;
+$boxShadow: 0 0 20px #999;
+
+
+// mixins
+@mixin pozadinskeSlike {
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: $white;
+}
+@mixin btn {
+    padding: 15px 30px;
+    background: $orange;
+    font-size: 1rem;
+    text-transform: uppercase;
+    border: none;
+    transition: $transition;
+    cursor: pointer;
+    margin-top: 30px;
+    &:hover {
+        background: $gray;
+        color: $white;
+    }
+}
+
+// basic styles
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: $bodyFont;
+    background: $lightgray;
+    color: $gray;
+    line-height: 1.6;
+    font-size: $font;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $headings;
+}
+.underline {
+    display: block;
+    content: "";
+    width: 200px;
+    height: 2px;
+    background: $orange;
+    margin: 50px auto 0 auto;
+}
+.container {
+    width: 80%;
+    margin: auto;
+    @media(max-width: 767px) {
+        width: 90%;
+    }
+}
+a {
+    transition: $transition;
+}
+
+// header
+header {
+    background-image: linear-gradient(rgba($black, .5), rgba($black, .5)), url(img/header.jpg);
+    height: 100vh;
+    @include pozadinskeSlike;
+    text-align: center;
+    @media(max-width: 767px) {
+        height: 70vh;
+    }
+    p {
+        font-size: 2rem;
+        font-weight: 300;
+        @media(max-width: 767px) {
+            font-size: 1.2rem;
+        }
+        &::after {
+            @extend .underline;
+        }
+    }
+    h1 {
+        font-size: 7rem;
+        @media(max-width: 767px) {
+            font-size: 4rem;
+            line-height: 1;
+            margin-top: 30px;
+        }
+    }
+}
+
+// uvod
+.uvod {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: $padding;
+    @extend .container;
+    article {
+        flex: 0 0 48%;
+        @media(max-width: 767px) {
+            flex: 0 0 100%;
+            margin-bottom: 30px;
+        }
+        img {
+            width: 100%;
+            display: block;
+        }
+        .text {
+            background: $white;
+            padding: 40px;
+            text-align: center;
+            p {
+                font-size: 1.2rem;
+                font-weight: 300;
+            }
+            p:first-child {
+                &::after {
+                    @extend .underline;
+                    margin: 30px auto 20 auto;
+                    width: 50px;
+                }
+            }
+        }
+        h2 {
+            font-size: 2.5rem;
+
+        }
+        button {
+            @include btn;
+        }
+        
+    }
+}
+
+// cta
+.cta {
+    background-image: linear-gradient(rgba($black, .5), rgba($black, .5)), url(img/cta.jpg);
+    height: 60vh;
+    @include pozadinskeSlike;
+    text-align: center;
+    @media(max-width: 767px) {
+        padding: 20px;
+    }
+    p {
+        font-size: 1.5rem;
+        @media(max-width: 767px) {
+            font-size: 1.2rem;
+        }
+        &::after {
+            @extend .underline;
+        }
+    }
+    h2 {
+        font-size: 6rem;
+        @media(max-width: 767px) {
+            font-size: 4rem;
+        }
+    }
+    button {
+        @include btn;
+    }
+}
+
+// galerija
+.galerija {
+    padding: $padding;
+    @extend .container;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    article {
+        flex: 0 0 48%;
+        margin-bottom: 45px;
+        @media(max-width: 767px) {
+            flex: 0 0 100%;
+        }
+        img {
+            width: 100%;
+            border: 15px solid $white;
+            border-radius: $borderRadius;
+            box-shadow: $boxShadow;
+            transition-duration: .7s;
+            &:hover {
+                transform: scale(1.1);
+                border: 15px solid $orange;
+            }
+        }
+    }
+}
+
+// footer
+footer {
+    padding: $padding;
+    text-align: center;
+    background: $gray;
+    article {
+        &>a {
+            color: $orange;
+            margin: 0 20px;
+            font-size: 2rem;
+            &:hover {
+                color: $white;
+            }
+        }
+        
+    }
+    p {
+        color: $white;
+        margin-top: 30px;
+        a {
+            color: $orange;
+            text-transform: uppercase;
+            &:hover {
+                color: $white;
+            }
+        }
+    }
+}
+
+
+
+
+
+

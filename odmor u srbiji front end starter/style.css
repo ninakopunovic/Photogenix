@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Nunito:wght@200;400;700&display=swap');
+:root {
+    --primaryColor: #455360;
+    --secondaryColor: #fb795b;
+    --white: #fff;
+    --font: 'Nunito', sans-serif;
+    --fontSize: 16px;
+    --logoFont: 'Great Vibes', cursive;
+    --transition: .3s ease;
+}
+body {
+    font-size: var(--fontSize);
+    color: var(--primaryColor);
+    font-family: var(--font);
+}
+h1, h2, h3, h4 {
+    font-weight: 700;
+}
+.button {
+    background: var(--secondaryColor);
+    text-decoration: none;
+    color: var(--white);
+    font-size: 1rem;
+    padding: 15px 40px;
+    transition: var(--transition);
+    margin-top: 10px;
+    display: inline-block;
+}
+.button:hover {
+    text-decoration: none;
+    background: var(--primaryColor);
+    color: var(--white);
+}
+
+/* topbar */
+.topbar {
+    background: var(--primaryColor);
+}
+.topbar a {
+    color: var(--white);
+}
+.topbar a:hover {
+    color: var(--secondaryColor);
+    transition: var(--transition);
+}
+.topbar .fas {
+    color: var(--secondaryColor);
+}
+
+/* nav */
+.navbar {
+    background: var(--secondaryColor);
+}
+.navbar-brand {
+    font-family: var(--logoFont);
+    font-size: 2rem;
+    color: var(--primaryColor);
+}
+.navbar-brand:hover {
+    color: var(--white) !important;
+    transition: var(--transition);
+}
+.nav-link {
+    color: var(--primaryColor) !important;
+    text-transform: uppercase;
+}
+.nav-link:hover {
+    color: var(--white) !important;
+    transition: var(--transition);
+}
+.active .nav-link {
+    color: var(--white) !important;
+}
+
+/* header */
+header {
+    background-image: url(img/header.png);
+    background-size: cover;
+    background-position: center;
+    height: 90vh;
+    position: relative;
+}
+header article {
+    position: absolute;
+    right: 10%;
+    border-right: 10px solid var(--secondaryColor);
+    background: var(--white);
+    padding: 100px;
+}
+
+/* main */
+/* widget */
+.widget {
+    border: 1px solid var(--primaryColor);
+}
+.widget h3 {
+    background: var(--secondaryColor);
+}
+.widget ul li a {
+    color: var(--primaryColor);
+    text-decoration: none;
+    border-bottom: 2px solid var(--secondaryColor);
+    display: block;
+    margin-bottom: 5px;
+    transition: var(--transition);
+}
+.widget ul li a:hover {
+    background: var(--secondaryColor);
+    color: var(--white);
+    padding-left: 30px;
+}
+
+/* post */
+.post .text {
+    width: 80%;
+    margin: auto;
+    position: relative;
+    top: -100px;
+    background: var(--white);
+    border-bottom: 6px solid var(--secondaryColor);
+}
+.post h2 {
+    color: var(--secondaryColor);
+    font-size: 2.5rem;
+    text-shadow: 0 0 1px var(--primaryColor);
+}
+
+/* footer */
+footer {
+    background: var(--secondaryColor);
+}
+footer p {
+    background: var(--primaryColor);
+}
+
+/* bottomBar */
+.bottomBar {
+    background: var(--primaryColor);
+}
+.bottomBar p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/* responsive */
+@media(min-width: 768px) and (max-width: 1024px) {
+    header h1 {
+        font-size: 3rem !important;
+    }
+    header {
+        background-position: center left;
+        height: 80vh;
+    }
+    header article {
+        width: 60%;
+        left: 0%;
+        bottom: 5%;
+        padding: 50px;
+    }
+    .post .text {
+        padding: 20px !important;
+    }
+}
+@media(max-width: 767px) {
+    .topbar .col-md-6 {
+        text-align: center !important;
+    }
+    header h1 {
+        font-size: 2rem !important;
+    }
+    header {
+        background-position: left;
+        height: 80vh;
+    }
+    header article {
+        right: 0%;
+        bottom: 0;
+        padding: 50px;
+        background: rgba(255, 255, 255, .8);
+    }
+    .main .col-md-4 {
+        order: 2;
+    }
+    .main .col-md-8 {
+        order: 1;
+    }
+    .post .text {
+        padding: 20px !important;
+        width: 90%;
+        top: -50px;
+    }
+}
+

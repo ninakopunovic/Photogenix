@@ -1,0 +1,274 @@
+/*--- IMPORT FONT ---*/
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
+/*--- VARS ---*/
+$fontFamily: "Roboto", sans-serif;
+$black: #081624;
+$darkBlue: #0c062e;
+$pink: #501755;
+$darkPink: #492866;
+$violet: #2d1854;
+$accents: #b41aab;
+$lightGray: #9190a5;
+$white: #fff;
+$fontSize: 16px;
+$transition: 0.4s ease;
+$padding: 80px 0;
+
+// mixins
+@mixin bgImg($bgPosition, $bgSize, $height) {
+    background-position: $bgPosition;
+    background-size: $bgSize;
+    height: $height;
+}
+@mixin flex($justify, $align, $direction) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: $justify;
+    align-items: $align;
+    flex-direction: $direction;
+}
+@mixin btn {
+    padding: 15px 30px;
+    background: $white;
+    color: $pink;
+    box-shadow: 10px 10px $accents;
+    border: none;
+    text-transform: uppercase;
+    font-size: .8rem;
+    font-style: italic;
+    margin-top: 30px;
+    transition: $transition;
+    cursor: pointer;
+    &:hover {
+        box-shadow: 10px 10px $darkBlue;
+    }
+}
+
+// basic styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+    font-family: $fontFamily;
+    font-size: $fontSize;
+    line-height: 1.6;
+    color: $white;
+}
+.container {
+    width: 70%;
+    margin: auto;
+}
+
+.bars {
+    color: $lightGray;
+    a {
+        color: $lightGray;
+        margin-left: 10px;
+        &:hover {
+            color: $accents;
+        }
+    }
+}
+a {
+    transition: $transition;
+    text-decoration: none;
+}
+ul {
+    list-style: none;
+}
+.logo {
+    color: $white;
+    font-size: 1.5rem;
+    font-weight: 900;
+    span {
+        color: $accents;
+        font-style: italic;
+        text-shadow: 0 0 5px $white;
+    }
+    &:hover {
+        color: $accents;
+    }
+}
+.lista {
+    @include flex(space-between, center, row);
+    a {
+        color: $white;
+        margin-left: 50px;
+        &:hover {
+            color: $accents;
+        }
+    }
+}
+.links {
+    color: $white;
+    text-transform: uppercase;
+    font-style: italic;
+    &:hover {
+        color: $accents;
+    }
+    i {
+        color: $accents;
+    }
+}
+
+// header
+header {
+    background-image: linear-gradient(to right, rgba($accents, .7), rgba($darkBlue, .7)), url(img/header.jpg);
+    border-bottom: 3px solid $accents;
+    @include bgImg(center, cover, 100vh);
+    .topbar {
+        @extend .bars;
+        text-align: right;
+        padding: 20px 0;
+    }
+    nav {
+        background: $black;
+        padding: 20px;
+        box-shadow: 0 0 10px $accents;
+        @include flex(space-between, center, row);
+        ul {
+            @extend .lista;
+        }
+    }
+    .usp {
+        @include flex(center, center, column);
+        height: 80vh;
+        h1 {
+            font-size: 10rem;
+        }
+        p {
+            color: $lightGray;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+        button {
+            @include btn;
+        }
+    }
+}
+
+// reviews
+.reviews {
+    background: $darkBlue;
+    padding: $padding;
+    .container {
+        @include flex(space-between, center, row);
+        div {
+            flex: 0 0 30%;
+            span {
+                color: $accents;
+            }
+            h2 {
+                font-size: 2rem;
+            }
+            p {
+                padding: 30px 0;
+            }
+        }
+    }
+}
+
+// news
+.news {
+    background: linear-gradient(45deg, $pink, $violet);
+    padding: $padding;
+    .container {
+        @include flex(space-between, flex-start, row);
+        article {
+            flex: 0 0 70%;
+            h2 {
+                font-size: 3rem;
+                font-style: italic;
+                margin-bottom: 20px;
+            }
+            .post {
+                margin-bottom: 30px;
+                @include flex(space-between, center, row);
+                .featured-image {
+                    flex: 0 0 38%;
+                    img {
+                        width: 100%;
+                    }
+                }
+                .text {
+                    flex: 0 0 58%;
+                    span {
+                        color: $accents;
+                        
+                    }
+                    h3 {
+                        font-size: 1.7rem;
+                    }
+                    p {
+                        color: $lightGray;
+                        padding: 10px 0;
+                    }
+                }
+            }
+        }
+        aside {
+            flex: 0 0 30%;
+            background: $pink;
+            .widget {
+                padding: 30px;
+                h3 {
+                    font-size: 2rem;
+                }
+                ul {
+                    li {
+                        line-height: 2;
+                        a {
+                            @extend .links;
+                        }
+                    }
+                }
+                div {
+                    background: $lightGray;
+                    padding: 20px;
+                    text-align: center;
+                    img {
+                        width: 100%;
+                    }
+                    h4 {
+                        color: $black;
+                    }
+                    h2 {
+                        font-size: 2rem;
+                        text-shadow: 0 0 5px $accents;
+                        color: $black;
+                    }
+                    button {
+                        @include btn;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// subscribe
+.subscribe {
+    padding: $padding;
+    text-align: center;
+    background: $lightGray;
+    h2 {
+        font-size: 3rem;
+        color: $darkBlue;
+    }
+    input[type="email"] {
+        padding: 15px;
+        width: 400px;
+        background: transparent;
+        border: none;
+        border-bottom: 3px solid violet;
+        margin-right: 30px;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        font-style: italic;
+    }
+    input[type="submit"] {
+        @include btn;
+    }
+}
